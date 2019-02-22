@@ -5,7 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.sysone.prueba_ingreso.model.exception.CannotCompressException;
+import com.sysone.prueba_ingreso.model.compresser.exception.CannotCompressException;
 
 public class CompressServiceTest {
 	
@@ -23,6 +23,15 @@ public class CompressServiceTest {
 		String compressedStringResult = this.service.compress(STRING_TO_COMPRESS);
 		
 		assertEquals("3A2B5A3B8C5A", compressedStringResult);		
+	}
+	
+	@Test
+	public void given_a_string_with_mixed_case_characters_when_compressing_should_return_the_compressed_string() {
+		final String STRING_TO_COMPRESS = "AAaaCcCC";
+		
+		String compressedStringResult = this.service.compress(STRING_TO_COMPRESS);
+		
+		assertEquals("4A4C", compressedStringResult);		
 	}
 	
 	@Test

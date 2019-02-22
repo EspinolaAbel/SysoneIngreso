@@ -2,14 +2,14 @@ package com.sysone.prueba_ingreso.service;
 
 import org.springframework.stereotype.Service;
 
-import com.sysone.prueba_ingreso.model.Compresser;
-import com.sysone.prueba_ingreso.model.StringCompresser;
+import com.sysone.prueba_ingreso.model.compresser.Compressor;
+import com.sysone.prueba_ingreso.model.compresser.StringCompressor;
 
 @Service
 public class CompressService {
 
 	public String compress(String value) {
-		Compresser<String> compresser = new StringCompresser();
+		Compressor<String> compresser = new StringCompressor();
 		return compresser.compress(value);
 	}
 
